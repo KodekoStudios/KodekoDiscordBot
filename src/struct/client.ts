@@ -33,8 +33,12 @@ export default class Client extends Session {
   }
 
   public async init (): Promise<void> {
+    await this.manager.load()
+
     await this.db.init()
     await this.start()
+
+    await this.manager.sync(this)
 
     this.developers.Pavez = await this.managers.users.get('788869971073040454')
     this.developers.Aaron = await this.managers.users.get('852970774067544165')

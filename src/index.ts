@@ -21,9 +21,6 @@ void (async function main () {
   })
 
   client.once('READY', async payload => {
-    await client.manager.load()
-    await client.manager.sync(client)
-
     const username = payload.user.username
 
     console.log('Logged in as: %s', username)
